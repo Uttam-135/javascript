@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="calculator icon" type="png" href="./calculator.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <label for="button" id="historybutton">History</label>
+
+        <div class="inputcont">
+            <input type="text" name="" id="input" placeholder="0" />
+        </div>
+        
+        <div class="btncont">
+            <input type="button" value="AC"  id="clear" style="color: #6dee0a;">
+            <input type="button" value="DEL" id="delete" style="color: #6dee0a;">
+            <input type="button" value="*"  class="button" id="operator">
+            <input type="button" value="/" class="button" id="operator">
+            <input type="button" value="1" class="button" id="number">
+            <input type="button" value="2" class="button" id="number">
+            <input type="button" value="3" class="button" id="number">
+            <input type="button" value="+" class="button" id="operator">
+            <input type="button" value="4" class="button" id="number">
+            <input type="button" value="5" class="button" id="number">
+            <input type="button" value="6" class="button" id="number">
+            <input type="button" value="-" class="button" id="operator">
+            <input type="button" value="7" class="button" id="number">
+            <input type="button" value="8" class="button" id="number">
+            <input type="button" value="9" class="button" id="number">
+            <input type="button" value="(" class="button" id="operator">
+            <input type="button" value=")" class="button" id="operator">
+            <input type="button" value="0" class="button" id="number">
+            <input type="button" value="00" class="button" id="number">
+            <input type="button" value="=" id="equal" id="item20">
+        </div>
+    </div>
+    <div class="history">
+        <div class="cls">
+            <input type="button" value="X" id="cancel">
+            <label for="button" id="clrbtn">clear</label>
+        </div>
+        <div id="text"></div>
+    </div>
+    
+</body>
+<script src="./script.js"></script>
+</html>
