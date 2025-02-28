@@ -33,7 +33,6 @@ operator.forEach( function(e){
 document.querySelector("#equal").addEventListener("click", () => {
     input.value = eval(input.value)
     calchistory.innerHTML += `<p style="display: block">${expression} = ${input.value}</p>   `
-    input.value = ''
     expression = ''
 
 })
