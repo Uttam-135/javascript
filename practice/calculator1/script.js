@@ -11,13 +11,12 @@ const clearbtn = document.querySelector('#clrbtn')
 const screen1 = document.querySelector('.main')
 const screen2 = document.querySelector('.history')
 
-const operatervlaue = ['-', '+','*', '/', '(', ')']
-let expression = ''
+const operatervlaue = ['-', '+','*', '/']
+let expression = JSON.parse(localStorage.getItem("history")) || [];
 
 numberbtn.forEach( function(e){
     e.addEventListener('click',function(btn){
         input.value += e.value
-        expression += e.value
     })
 })
 operator.forEach( function(e){
@@ -25,16 +24,15 @@ operator.forEach( function(e){
         let lastchar = input.value.slice(-1)
         if(!operatervlaue.includes(lastchar)){
             input.value += e.value
-            expression += e.value
         }
     })
 })
 
 document.querySelector("#equal").addEventListener("click", () => {
+    expression.push(`${input.value} = ${eval(input.value)}`)
     input.value = eval(input.value)
-    calchistory.innerHTML += `<p style="display: block">${expression} = ${input.value}</p>   `
-    expression = ''
-
+    storeHistory()
+    showHistory()
 })
 
 document.querySelector('#clear').addEventListener("click", () => {
@@ -46,7 +44,8 @@ document.querySelector('#delete').addEventListener("click", () => {
 
 clearbtn.addEventListener('click', function(e){
     calchistory.innerHTML = ''
-    expression = ''
+    expression = []
+    storeHistory()
 })
 cancelbutton.addEventListener('click', function(e){
     screen1.style.display = 'block'
@@ -57,3 +56,15 @@ historybutton.addEventListener('click', function(e){
     screen1.style.display = 'none'
     screen2.style.display = 'block'
 })
+
+function storeHistory() {
+    localStorage.setItem("history", JSON.stringify(expression))
+}
+
+function showHistory() {
+    expression.forEach( (express) => {
+        calchistory.innerHTML += `<p style="display: block">${express}</p>`
+    })
+}
+
+window.addEventListener("load", showHistory)
